@@ -26,7 +26,19 @@ glimpse(college_grad_df)
 # Exercise 1: Exploratory Data Analysis
 
 ```{r}
-#your code here
+college_all_ages %>%
+  ggplot(aes(x = median)) +
+  geom_histogram(binwidth = 2500) +
+  labs(x = "Median of Earinings",
+       y = "Numbers of Major",
+       title = "Distribution of Median Earnings")
+college_all_ages %>%  
+group_by(major_category) %>%
+    summarise(n_major = n(),
+              median_earning = median(median),
+              mean_earning = mean(median),
+              max_earning = max(median)) %>%
+  arrange(desc(median_earning))
 ```
 
 *Your explanation*
@@ -35,7 +47,7 @@ glimpse(college_grad_df)
 # Exercise 2: Exploring relationship
 
 ```{r}
-#your code here
+
 ```
 
 *Your explanation*
